@@ -1,5 +1,5 @@
 console.log('we ready');
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['ngRoute']);
 
 myApp.config(function ($routeProvider) {
     $routeProvider.when('/rent', {
