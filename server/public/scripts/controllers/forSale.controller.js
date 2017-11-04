@@ -15,8 +15,8 @@ myApp.controller('SaleController', function ($http) {
         });
     };//end of refreshLisitings
 
-    sc.addListing = then(function (addListing) {
-        console.log(newListing);
+    sc.addListing = function (addListing) {
+        console.log(addListing);
         $http.post('/list' , addListing).then(function (response) {
 
 
@@ -26,5 +26,6 @@ myApp.controller('SaleController', function ($http) {
             console.log('addListing:',error);
             
         });
-    });
+    };//end of addListing
+    sc.refreshListings();
 }); 

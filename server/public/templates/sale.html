@@ -1,7 +1,7 @@
 <div id="SaleController">
     {{7===7}}
     <button ng-click="sc.refreshListings()">Refresh Listings</button>
-    <form ng-submit="rc.addListing(sc.newListing)">
+    <form ng-submit="sc.addListing(sc.newListing)">
         <label for="city">City:</label>
         <input type="text" name="city" id="city" placeholder="Your City" ng-model="sc.newListing.city">
         <label for="cost">Cost:</label>
