@@ -1,10 +1,14 @@
 <div id="RentController">
-{{7===7}}
-<button ng-click = "rc.refreshRentals()">Refresh</button>
-<label for="cityRent">City:</label>
-<input type="text" name="cityRent" id="cityRent" placeholder="City" ng-model="rc.city">
-<label for="rent">Rent:</label>
-<input type="number" name="rent" id="rent" placeholder="Rent" ng-model="rc.rent">
-<label for="sqftRent">Square Footage:</label>
-<input type="number" name="sqftRent" id="sqftRent" placeholder="Square Footage" ng-model="rc.sqft">
+    {{7===7}}
+    <button ng-click="rc.refreshRentals()">Refresh</button>
+    <form ng-submit="rc.addRental(rc.newRental)">
+        <label for="cityRent">City:</label>
+        <input type="text" name="cityRent" id="cityRent" placeholder="City" ng-model="rc.newRental.city">
+        <label for="rent">Rent:</label>
+        <input type="number" name="rent" id="rent" placeholder="Rent" ng-model="rc.newRental.rent">
+        <label for="sqftRent">Square Footage:</label>
+        <input type="number" name="sqftRent" id="sqftRent" placeholder="Square Footage" ng-model="rc.newRental.sqft">
+        <br>
+        <button class="btn btn-primary">Add Rental</button>
+    </form>
 </div>

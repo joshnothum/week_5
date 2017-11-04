@@ -23,4 +23,20 @@ router.get('/', function (req, res) {
     
 });//end of router.get
 
+router.post('/', function (req, res) {
+    console.log(req.body);
+    var rentToAdd = new Rent(req.body);
+    
+    rentToAdd.save(function (err, data) {
+        if (err) {
+            console.log('Oh, No!:', err);
+            res.sentStatus(501);
+        } else {
+            res.send(200);
+
+        }//end of if/else
+    });//end of rentToAdd
+
+});//end of router.post
+
 module.exports = router;
