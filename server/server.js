@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var rentals = require('./routers/properties.router.js');
+var rentals = require('./routers/rent.router.js');
+var listings = require('./routers/list.router.js');
 var port = process.env.PORT || 7000;
 
 /** ---------- MIDDLEWARE ---------- **/
@@ -10,7 +11,7 @@ app.use(express.static('server/public'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 app.use('/rent',rentals);
-
+app.use('/list', listings );
 /** ---------- MONGOOSE ------------ **/
 var mongoose = require('mongoose');
 // gamestop is the name of our database
