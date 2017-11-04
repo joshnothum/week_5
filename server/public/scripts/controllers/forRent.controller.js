@@ -3,5 +3,15 @@ myApp.controller('RentController', function ($http) {
 
     var rc = this;
 
+    rc.refreshRentals = function () {
+
+        $http.get('/rent').then(function (success) {
+            console.log(success);
+
+        }).catch(function (error) {
+            console.log(error);
+
+        });
+    };//end of refreshRentals
 
 });
