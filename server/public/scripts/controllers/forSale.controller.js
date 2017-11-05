@@ -4,6 +4,7 @@ myApp.controller('SaleController', function ($http, PropertyService) {
     var sc = this;
     sc.newListing = {};
     sc.allListings = PropertyService.allListings;
+    property = false;
 
     sc.refreshListings = function () {
 
@@ -12,15 +13,8 @@ myApp.controller('SaleController', function ($http, PropertyService) {
 
     sc.addListing = function (addListing) {
         console.log(addListing);
-        $http.post('/list' , addListing).then(function (response) {
-            $('.listInput').val('');
-            sc.refreshListings();
-            console.log('addListing response:', response);
-            
-        }).catch(function (error) {
-            console.log('addListing:',error);
-            
-        });
+        PropertyService.addItAll(property, addListing)
+        sc.refreshListings();
     };//end of addListing
 
     sc.deleteListings = function (listId) {

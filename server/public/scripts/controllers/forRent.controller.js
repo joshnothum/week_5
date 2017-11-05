@@ -11,7 +11,6 @@ myApp.controller('RentController', function ($http, PropertyService) {
     };//end of refreshRentals
 
     rc.addRental = function (addRental) {
-        console.log(addRental);
         PropertyService.addItAll(property, addRental);
         rc.refreshRentals();
     };//end of rc.addRentals()
