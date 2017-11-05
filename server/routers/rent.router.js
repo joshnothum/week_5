@@ -39,4 +39,30 @@ router.post('/', function (req, res) {
 
 });//end of router.post
 
+
+router.delete('/:id', function (req, res) {
+    console.log(req.params);
+    var rentId = req.params.id;
+
+    Rent.findByIdAndRemove({"_id": rentId}, function (err, data) {
+
+        if (err) {
+            console.log('Oh, No! We got issues in the delete route:', err);
+            res.sentStatus(501);
+        } else {
+            res.send(200);
+
+        }//end of if/else
+    });//end of findByIdAndRemove
+
+});//end of router.delete
 module.exports = router;
+
+Game.findByIdAndRemove({ "_id": gameId }, function (err, data) {
+    if (err) {
+        console.log(err);
+        res.sendStatus(502);
+    } else {
+        res.sendStatus(200);
+    }
+}); // END DELETE Route

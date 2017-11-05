@@ -16,11 +16,13 @@
             <th>City</th>
             <th>Rent</th>
             <th>Square Footage</th>
+            <th>Delete</th>
         </tr>
         <tr ng-repeat="rent in rc.allRentals">
             <td>{{rent.city}}</td>
             <td>{{rent.rent}}</td>
             <td>{{rent.sqft}}</td>
+            <td><button class="btn btn-small btn-danger" ng-click="rc.deleteRentals(rent._id)"> Delete</button></td>
         </tr>
     </table>
 </div>
