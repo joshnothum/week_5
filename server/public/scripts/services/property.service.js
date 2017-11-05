@@ -13,7 +13,6 @@ myApp.service('PropertyService', function ($http) {
         $http.get('/rent').then(function (success) {
             console.log(success.data);
             self.allRentals.data = success.data;
-            console.log(self.allRentals);
 
         }).catch(function (error) {
             console.log(error);
@@ -23,7 +22,7 @@ myApp.service('PropertyService', function ($http) {
     
         $http.get('/list').then(function (success) {
             console.log(success);
-            self.allListings = success.data;
+            self.allListings.data = success.data;
         }).catch(function (error) {
             console.log(error);
 

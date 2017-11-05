@@ -1,19 +1,13 @@
-myApp.controller('SaleController', function ($http) {
+myApp.controller('SaleController', function ($http, PropertyService) {
     console.log('SaleController created.');
 
     var sc = this;
     sc.newListing = {};
-    sc.allListings ={};
+    sc.allListings = PropertyService.allListings;
 
     sc.refreshListings = function () {
 
-        $http.get('/list').then(function (success) {
-            console.log(success);
-            sc.allListings = success.data;
-        }).catch(function (error) {
-            console.log(error);
-
-        });
+        PropertyService.refreshItAll();
     };//end of refreshLisitings
 
     sc.addListing = function (addListing) {

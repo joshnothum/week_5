@@ -14,7 +14,7 @@ myApp.controller('RentController', function ($http, PropertyService) {
         console.log(addRental);
         PropertyService.addItAll(property, addRental);
         rc.refreshRentals();
-        };;//end of rc.addRentals()
+    };//end of rc.addRentals()
 
     rc.deleteRentals = function (rentId) {
         console.log(rentId);
