@@ -1,16 +1,18 @@
-myApp.service('PropertySerivice', function ($https) {
+myApp.service('PropertyService', function ($http) {
     var self = this;
     console.log('Property Service is probably working');
 
     self.allRentals = {};
     self.allListings = {};
+    console.log(self.allRentals);
+    
 
     self.refreshItAll =  function (property) {
-        if(property === 'rental'){
+        if(property === 'rent'){
 
         $http.get('/rent').then(function (success) {
             console.log(success.data);
-            self.allRentals = success.data;
+            self.allRentals.data = success.data;
             console.log(self.allRentals);
 
         }).catch(function (error) {
