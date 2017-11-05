@@ -21,13 +21,35 @@ myApp.service('PropertyService', function ($http) {
         });
     }else{
     
-        } $http.get('/list').then(function (success) {
+        $http.get('/list').then(function (success) {
             console.log(success);
             self.allListings = success.data;
         }).catch(function (error) {
             console.log(error);
 
         });
-    };//end of refreshRentals
+    }//end of refreshRentals
 
-});//end of Service
+};
+
+    self.addItAll = function (property, addProperty) {
+        if(property === 'rent'){
+
+            $http.post('/rent', addProperty).then(function (response) {
+                console.log('addRental reponse:', response);
+
+        }).catch(function (error) {
+        console.log('error response:', error);
+
+        });
+        }else{
+                $http.post('/list', addProperty).then(function (response) {
+                    console.log('addListing response:', response);
+
+                }).catch(function (error) {
+                    console.log('addListing:', error);
+
+                });
+            }//end of addListing
+        };
+    });
