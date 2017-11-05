@@ -40,4 +40,22 @@ list.post('/', function (req, res) {
     });//end of rentToAdd
 
 });//end of router.post
+
+
+list.delete('/:id', function (req, res) {
+    console.log(req.params);
+    var listId = req.params.id;
+
+    Listing.findByIdAndRemove({ "_id": listId }, function (err, data) {
+
+        if (err) {
+            console.log('Oh, No! We got issues in the list delete route:', err);
+            res.sentStatus(501);
+        } else {
+            res.send(200);
+
+        }//end of if/else
+    });//end of findByIdAndRemove
+
+});//end of router.delete
 module.exports = list;
