@@ -11,4 +11,20 @@
         <br>
         <button class="btn btn-primary">Add Listing</button>
     </form>
+        <table class="table table-bordered" id="listInfo">
+            <tr>
+                <th>City</th>
+                <th>Cost</th>
+                <th>Square Footage</th>
+                <th>Delete</th>
+            </tr>
+            <tr ng-repeat="list in sc.allListings">
+                <td>{{list.city}}</td>
+                <td>{{list.cost}}</td>
+                <td>{{list.sqft}}</td>
+                <td>
+                    <button class="btn btn-small btn-danger" ng-click="sc.deleteListings(list._id)"> Delete</button>
+                </td>
+            </tr>
+        </table>
 </div>
