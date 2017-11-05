@@ -57,12 +57,3 @@ router.delete('/:id', function (req, res) {
 
 });//end of router.delete
 module.exports = router;
-
-Game.findByIdAndRemove({ "_id": gameId }, function (err, data) {
-    if (err) {
-        console.log(err);
-        res.sendStatus(502);
-    } else {
-        res.sendStatus(200);
-    }
-}); // END DELETE Route

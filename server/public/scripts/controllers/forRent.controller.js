@@ -36,7 +36,7 @@ myApp.controller('RentController', function ($http) {
     rc.deleteRentals = function (rentId) {
         console.log(rentId);
 
-        $http.delete('/rent' + rentId).then(function (response) {
+        $http.delete('/rent/' + rentId).then(function (response) {
             console.log('deleteRental reponse:', response);
             rc.refreshRentals();
 
