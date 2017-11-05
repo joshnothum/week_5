@@ -23,7 +23,7 @@ myApp.controller('RentController', function ($http) {
         
         $http.post('/rent', addRental).then(function (response) {
             console.log('addRental reponse:', response);
-            
+            $('.rentInput').val('');
             
         }).catch(function (error) {
             console.log('error response:', error);

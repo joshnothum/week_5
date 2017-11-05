@@ -19,7 +19,7 @@ myApp.controller('SaleController', function ($http) {
     sc.addListing = function (addListing) {
         console.log(addListing);
         $http.post('/list' , addListing).then(function (response) {
-
+            $('.listInput').val('');
             sc.refreshListings();
             console.log('addListing response:', response);
             

@@ -1,13 +1,13 @@
 <div id="SaleController">
     {{7===7}}
     <button ng-click="sc.refreshListings()">Refresh Listings</button>
-    <form ng-submit="sc.addListing(sc.newListing)">
+    <form ng-submit="sc.addListing(sc.newListing)" id="rentals">
         <label for="city">City:</label>
-        <input type="text" name="city" id="city" placeholder="Your City" ng-model="sc.newListing.city">
+        <input class="saleInput" type="text" name="city" id="city" placeholder="Your City" ng-model="sc.newListing.city">
         <label for="cost">Cost:</label>
-        <input type="text" name="cost" id="cost" placeholder="Your Price $00000" ng-model="sc.newListing.cost">
+        <input class="saleInput" type="text" name="cost" id="cost" placeholder="Your Price $00000" ng-model="sc.newListing.cost">
         <label for="sqft">Square Footage:</label>
-        <input type="text" name="sqft" id="sqft" placeholder="Your Square Footage" ng-model="sc.newListing.sqft">
+        <input class="saleInput" type="text" name="sqft" id="sqft" placeholder="Your Square Footage" ng-model="sc.newListing.sqft">
         <br>
         <button class="btn btn-primary">Add Listing</button>
     </form>
