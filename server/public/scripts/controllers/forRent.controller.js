@@ -3,12 +3,15 @@ myApp.controller('RentController', function ($http) {
 
     var rc = this;
     rc.newRental = {};
+    rc.allRentals = {};
 
     rc.refreshRentals = function () {
 
         $http.get('/rent').then(function (success) {
-            console.log(success);
-
+            console.log(success.data);
+            rc.allRentals = success.data;
+            console.log(rc.allRentals);
+            
         }).catch(function (error) {
             console.log(error);
 
