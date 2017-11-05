@@ -13,20 +13,14 @@ myApp.controller('SaleController', function ($http, PropertyService) {
 
     sc.addListing = function (addListing) {
         console.log(addListing);
-        PropertyService.addItAll(property, addListing)
+        PropertyService.addItAll(property, addListing);
         sc.refreshListings();
     };//end of addListing
 
     sc.deleteListings = function (listId) {
         console.log(listId);
 
-        $http.delete('/list/' + listId).then(function (response) {
-            console.log('deleteListings reponse:', response);
-            sc.refreshListings();
-
-        }).catch(function (error) {
-            console.log('deleteListings error:', error);
-
-        });
+      PropertyService.deleteItAll(property, listId);
+      sc.refreshListings();
     };//end of rc.addRentals()
 }); 

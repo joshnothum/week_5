@@ -18,14 +18,7 @@ myApp.controller('RentController', function ($http, PropertyService) {
     rc.deleteRentals = function (rentId) {
         console.log(rentId);
 
-        $http.delete('/rent/' + rentId).then(function (response) {
-            console.log('deleteRental reponse:', response);
-            rc.refreshRentals();
-
-        }).catch(function (error) {
-            console.log('deleteRentals error:', error);
-
-        });
+    PropertyService.deleteItAll(property, rentId);
 
         rc.refreshRentals();
     };//end of rc.addRentals()

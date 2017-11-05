@@ -51,4 +51,26 @@ myApp.service('PropertyService', function ($http) {
                 });
             }//end of addListing
         };
+
+
+        self.deleteItAll = function (property, propId) {
+            if(property === 'rent'){
+                $http.delete('/rent/' + propId).then(function (response) {
+                    console.log('deleteRental reponse:', response);
+
+                }).catch(function (error) {
+                    console.log('deleteRentals error:', error);
+
+                });
+            }else{
+
+            $http.delete('/list/' + propId).then(function (response) {
+                console.log('deleteListings reponse:', response);
+
+            }).catch(function (error) {
+                console.log('deleteListings error:', error);
+
+            });
+        }
+        };
     });
