@@ -26,7 +26,7 @@ myApp.controller('RentController', function ($http, PropertyService) {
             buttons: true,
             dangerMode: true,
         })
-            .then((willDelete) => {
+            .then(function(willDelete) {
                 if (willDelete) {
                     PropertyService.deleteItAll(property, rentId);
 
@@ -41,26 +41,25 @@ myApp.controller('RentController', function ($http, PropertyService) {
             });
     };//end of rc.deleteRentals()
 
-    rc.editRentals = function (rentId) {
-        swal({
-            title: "Edit property",
-            html:
-                '<input class="rentInput" type="text" name="cityRent" id="cityRent" placeholder="City" ng-model="rc.newRental.city">'+
-                '<input class="rentInput" type="number" name="rent" id="rent" placeholder="Rent" ng-model="rc.newRental.rent">'+
-                '<input class="rentInput" type="number" name="sqftRent" id="sqftRent" placeholder="Square Footage" ng-model="rc.newRental.sqft">',
-            button: true,
-            dangerMode:true,
-        })
-        .then((willEdit)=> {
-            if(willEdit) {
-            PropertyService.editItAll(property, rentId, rc.newRental);
-            rc.refreshRentals();
-        swal("Okie Doke!", {
-            icon: "success",
-        });
-    } else {
-        swal("maybe later");
-        }
-    });
-};
+    // rc.editRentals = function (rentId) {
+    //     swal({
+    //         title: "Edit property",
+    //         html:
+    //             '<input class="rentInput" type="text" name="cityRent" id="cityRent" placeholder="City" ng-model="rc.newRental.city">'+
+    //             '<input class="rentInput" type="number" name="rent" id="rent" placeholder="Rent" ng-model="rc.newRental.rent">'+
+    //             '<input class="rentInput" type="number" name="sqftRent" id="sqftRent" placeholder="Square Footage" ng-model="rc.newRental.sqft">',
+    //         buttons: true,
+    //         dangerMode:true,
+    //     })
+    //     .then((willEdit) =>{
+    //         if(willEdit) {
+    //         PropertyService.editItAll(property, rentId, rc.newRental);
+    //         rc.refreshRentals();
+    //     swal("Okie Doke!", {
+    //         icon: "success",
+    //     });
+    // } else {
+    //     swal("maybe later");
+    //     }
+    // });
 });
