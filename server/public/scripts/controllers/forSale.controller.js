@@ -42,4 +42,6 @@ myApp.controller('SaleController', function ($http, PropertyService) {
         PropertyService.editItAll(property, listId);
         sc.refreshListings();
     };
+
+    sc.refreshListings();
 }); 
