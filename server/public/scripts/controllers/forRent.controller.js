@@ -29,16 +29,13 @@ myApp.controller('RentController', function ($http, PropertyService) {
             .then(function(willDelete) {
                 if (willDelete) {
                     PropertyService.deleteItAll(property, rentId);
-
                     rc.refreshRentals();
-                    swal("That's All Folks!", {
-                        icon: "success",
-
-                    });
+                    swal("That's All Folks!");
                 } else {
                     swal("That's probably a good decision!");
                 }
             });
+
     };//end of rc.deleteRentals()
 
     // rc.editRentals = function (rentId) {
@@ -62,4 +59,6 @@ myApp.controller('RentController', function ($http, PropertyService) {
     //     swal("maybe later");
     //     }
     // });
+
+    rc.refreshRentals();
 });

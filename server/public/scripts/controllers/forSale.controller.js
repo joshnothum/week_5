@@ -27,14 +27,11 @@ myApp.controller('SaleController', function ($http, PropertyService) {
             buttons: true,
             dangerMode: true,
         })
-            .then((willDelete) => {
+            .then(function(willDelete) {
                 if (willDelete) {
                     PropertyService.deleteItAll(property, listId);
                     sc.refreshListings();
-                    swal("That's All Folks!", {
-                        icon: "success",
-                        
-                    });
+                    swal("That's All Folks!");
                 } else {
                     swal("That's probably a good decision!");
                 }
