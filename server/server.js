@@ -22,7 +22,7 @@ mongoose.connection.on('connected', function () {
     console.log('mongoose is connected!', databaseUrl);
 });
 
-mongoose.connection.on('error', function () {
+mongoose.connection.on('error', function (err) {
     console.log('mongoose connection failed', err);
 });
 mongoose.connect(databaseUrl);
