@@ -2,14 +2,16 @@
     {{7===7}}
     <button ng-click="rc.refreshRentals()">Show Rentals</button>
     <form ng-submit="rc.addRental(rc.newRental)">
+        <div id="propertyForm" class ="form-group">
         <label for="cityRent">City:</label>
-        <input class="rentInput" type="text" name="cityRent" id="cityRent" placeholder="City" ng-model="rc.newRental.city">
+        <input class="form-control rentInput" type="text" name="cityRent" id="cityRent" placeholder="City" ng-model="rc.newRental.city">
         <label for="rent">Rent:</label>
-        <input class="rentInput" type="number" name="rent" id="rent" placeholder="Rent" ng-model="rc.newRental.rent">
+        <input class="form-control rentInput" type="number" name="rent" id="rent" placeholder="Rent" ng-model="rc.newRental.rent">
         <label for="sqftRent">Square Footage:</label>
-        <input class="rentInput" type="number" name="sqftRent" id="sqftRent" placeholder="Square Footage" ng-model="rc.newRental.sqft">
+        <input class="form-control rentInput" type="number" name="sqftRent" id="sqftRent" placeholder="Square Footage" ng-model="rc.newRental.sqft">
         <br>
         <button class="btn btn-primary">Add Rental</button>
+        </div>
     </form>
     <table class="table table-bordered table-hover" id="rentInfo">
         <tr>

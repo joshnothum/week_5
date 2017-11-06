@@ -8,6 +8,7 @@ myApp.controller('RentController', function ($http, PropertyService) {
     rc.refreshRentals = function () {
 
         PropertyService.refreshItAll(property);
+        $('input').val('');
     };//end of refreshRentals
 
     rc.addRental = function (addRental) {
@@ -17,10 +18,26 @@ myApp.controller('RentController', function ($http, PropertyService) {
 
     rc.deleteRentals = function (rentId) {
         console.log(rentId);
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, this listing is gone FOREVER!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    PropertyService.deleteItAll(property, rentId);
 
-    PropertyService.deleteItAll(property, rentId);
+                    rc.refreshRentals();
+                    swal("That's All Folks!", {
+                        icon: "success",
 
-        rc.refreshRentals();
+                    });
+                } else {
+                    swal("That's probably a good decision!");
+                }
+            });
     };//end of rc.deleteRentals()
 
     rc.editRentals = function (rentId) {

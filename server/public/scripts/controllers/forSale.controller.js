@@ -9,6 +9,7 @@ myApp.controller('SaleController', function ($http, PropertyService) {
     sc.refreshListings = function () {
 
         PropertyService.refreshItAll();
+        $('input').val('');
     };//end of refreshLisitings
 
     sc.addListing = function (addListing) {
