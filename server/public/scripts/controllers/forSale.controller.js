@@ -23,4 +23,9 @@ myApp.controller('SaleController', function ($http, PropertyService) {
       PropertyService.deleteItAll(property, listId);
       sc.refreshListings();
     };//end of rc.addRentals()
+
+    sc.editListings = function (listId) {
+        PropertyService.editItAll(property, listId);
+        sc.refreshListings();
+    };
 }); 

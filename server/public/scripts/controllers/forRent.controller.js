@@ -23,4 +23,9 @@ myApp.controller('RentController', function ($http, PropertyService) {
         rc.refreshRentals();
     };//end of rc.addRentals()
 
+    sc.editRentals = function (listId, updateRental) {
+        PropertyService.editItAll(property, listId, updateRental);
+        sc.refreshRentals();
+    };
+
 });

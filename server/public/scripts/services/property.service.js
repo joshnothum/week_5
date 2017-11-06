@@ -73,4 +73,28 @@ myApp.service('PropertyService', function ($http) {
             });
         }
         };
+
+        self.editItAll = function (property, propId, updateProp) {
+            if (property === 'rent') {
+                $http.put('/rent/' + propId, updateProp).then(function (response) {
+                    console.log('updateRental reponse:', response);
+
+                }).catch(function (error) {
+                    console.log('updateRentals error:', error);
+
+                });
+            } else {
+
+                $http.put('/list/' + propId, updateProp).then(function (response) {
+                    console.log('updateListings reponse:', response);
+
+                }).catch(function (error) {
+                    console.log('updateListings error:', error);
+
+                });
+            }
+        };
+
+
+
     });
