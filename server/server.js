@@ -14,7 +14,7 @@ app.use('/rent',rentals);
 app.use('/list', listings );
 /** ---------- MONGOOSE ------------ **/
 var mongoose = require('mongoose');
-// gamestop is the name of our database
+
 // 27017 is the default mongo port number
 var databaseUrl = 'mongodb://localhost:27017/realestate';
 
