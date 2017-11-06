@@ -56,4 +56,20 @@ router.delete('/:id', function (req, res) {
     });//end of findByIdAndRemove
 
 });//end of router.delete
+
+router.put('/:id', function (req, res) {
+    console.log(req.params);
+    console.log(req.body);
+    
+    var rentId = req.params.id;
+    var rentToAdd = new Rent(req.body);
+    Rent.findByIdAndUpdate({ "_id": rentId}, {$set: req.body }, function (err, data) {
+        if(err){
+            console.log('my last run at this edit route:', err);
+            
+        }else{
+            res.send('were in teh edit:',201);
+        }
+    });
+});
 module.exports = router;
