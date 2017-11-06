@@ -21,11 +21,23 @@ myApp.controller('RentController', function ($http, PropertyService) {
     PropertyService.deleteItAll(property, rentId);
 
         rc.refreshRentals();
-    };//end of rc.addRentals()
+    };//end of rc.deleteRentals()
 
-    sc.editRentals = function (listId, updateRental) {
-        PropertyService.editItAll(property, listId, updateRental);
-        sc.refreshRentals();
+    rc.editRentals = function (rentId) {
+        swal({
+            title: "Edit property",
+            content:{
+                element:'<input class="rentInput" type="text" name="cityRent" id="cityRent" placeholder="City" ng-model="rc.newRental.city">'+
+                '<input class="rentInput" type="number" name="rent" id="rent" placeholder="Rent" ng-model="rc.newRental.rent">'+
+                '<input class="rentInput" type="number" name="sqftRent" id="sqftRent" placeholder="Square Footage" ng-model="rc.newRental.sqft">',
+            },
+            button: {
+                text: "Edit!",
+                closeModal: false,
+            }
+        // }, function () {
+        // PropertyService.editItAll(property, rentId, updateRental);
+        // rc.refreshRentals();
+        });
     };
-
 });

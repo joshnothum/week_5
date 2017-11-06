@@ -1,6 +1,6 @@
 <div id="RentController">
     {{7===7}}
-    <button ng-click="rc.refreshRentals()">Refresh</button>
+    <button ng-click="rc.refreshRentals()">Show Rentals</button>
     <form ng-submit="rc.addRental(rc.newRental)">
         <label for="cityRent">City:</label>
         <input class="rentInput" type="text" name="cityRent" id="cityRent" placeholder="City" ng-model="rc.newRental.city">
@@ -11,7 +11,7 @@
         <br>
         <button class="btn btn-primary">Add Rental</button>
     </form>
-    <table class="table table-bordered" id="rentInfo">
+    <table class="table table-bordered table-hover" id="rentInfo">
         <tr>
             <th>City</th>
             <th>Rent</th>

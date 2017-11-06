@@ -18,11 +18,27 @@ myApp.controller('SaleController', function ($http, PropertyService) {
     };//end of addListing
 
     sc.deleteListings = function (listId) {
-        console.log(listId);
-
-      PropertyService.deleteItAll(property, listId);
-      sc.refreshListings();
-    };//end of rc.addRentals()
+        
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, this listing is gone FOREVER!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    PropertyService.deleteItAll(property, listId);
+                    sc.refreshListings();
+                    swal("That's All Folks!", {
+                        icon: "success",
+                        
+                    });
+                } else {
+                    swal("That's probably a good decision!");
+                }
+            });
+    };//end of sc.deleteListings()
 
     sc.editListings = function (listId) {
         PropertyService.editItAll(property, listId);
