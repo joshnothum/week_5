@@ -19,7 +19,19 @@ app.use('/list', listings );
 var mongoose = require('mongoose');
 // gamestop is the name of our database
 // 27017 is the default mongo port number
-var databaseUrl = 'mongodb://localhost:27017/realestate';
+var databaseUrl = '';
+
+if (process.env.MONGODB_URI != undefined) {
+    // use the string value of the environment variable
+    databaseUrl = process.env.MONGODB_URI;
+} else {
+    // use the local database server
+    databaseUrl = 'mongodb://localhost:27017/realestate';
+}
+
+mongoose.connect(databaseUrl, {
+    useMongoClient: true
+});
 
 mongoose.connection.on('connected', function () {
     console.log('mongoose is connected!');
