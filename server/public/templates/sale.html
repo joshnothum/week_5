@@ -18,7 +18,7 @@
                 <th>Square Footage</th>
                 <th>Delete</th>
             </tr>
-            <tr ng-repeat="list in sc.allListings.data">
+            <tr ng-repeat="list in sc.allListings.data | orderBy:'-cost'">
                 <td>{{list.city}}</td>
                 <td>{{list.cost}}</td>
                 <td>{{list.sqft}}</td>

@@ -18,7 +18,7 @@
             <th>Square Footage</th>
             <th>Delete</th>
         </tr>
-        <tr ng-repeat="rent in rc.allRentals.data">
+        <tr ng-repeat="rent in rc.allRentals.data| orderBy:'-rent'">
             <td>{{rent.city}}</td>
             <td>{{rent.rent}}</td>
             <td>{{rent.sqft}}</td>
