@@ -4,14 +4,12 @@ myApp.service('PropertyService', function ($http) {
 
     self.allRentals = {};
     self.allListings = {};
-    console.log(self.allRentals);
     
 
     self.refreshItAll =  function (property) {
         if(property === 'rent'){
 
         $http.get('/rent').then(function (success) {
-            console.log(success.data);
             self.allRentals.data = success.data;
 
         }).catch(function (error) {
@@ -21,10 +19,11 @@ myApp.service('PropertyService', function ($http) {
     }else{
     
         $http.get('/list').then(function (success) {
-            console.log(success);
+           
             self.allListings.data = success.data;
         }).catch(function (error) {
-            console.log(error);
+            console.log('error:', error);
+            
 
         });
     }//end of refreshRentals
@@ -35,7 +34,7 @@ myApp.service('PropertyService', function ($http) {
         if(property === 'rent'){
 
             $http.post('/rent', addProperty).then(function (response) {
-                console.log('addRental reponse:', response);
+                
 
         }).catch(function (error) {
         console.log('error response:', error);
@@ -43,7 +42,7 @@ myApp.service('PropertyService', function ($http) {
         });
         }else{
                 $http.post('/list', addProperty).then(function (response) {
-                    console.log('addListing response:', response);
+                    
 
                 }).catch(function (error) {
                     console.log('addListing:', error);
@@ -56,7 +55,7 @@ myApp.service('PropertyService', function ($http) {
         self.deleteItAll = function (property, propId) {
             if(property === 'rent'){
                 $http.delete('/rent/' + propId).then(function (response) {
-                    console.log('deleteRental reponse:', response);
+                    
 
                 }).catch(function (error) {
                     console.log('deleteRentals error:', error);
@@ -65,7 +64,7 @@ myApp.service('PropertyService', function ($http) {
             }else{
 
             $http.delete('/list/' + propId).then(function (response) {
-                console.log('deleteListings reponse:', response);
+                
 
             }).catch(function (error) {
                 console.log('deleteListings error:', error);
@@ -77,7 +76,7 @@ myApp.service('PropertyService', function ($http) {
         self.editItAll = function (property, propId, updateProp) {
             if (property === 'rent') {
                 $http.put('/rent/' + propId, updateProp).then(function (response) {
-                    console.log('updateRental reponse:', response);
+                    
 
                 }).catch(function (error) {
                     console.log('updateRentals error:', error);

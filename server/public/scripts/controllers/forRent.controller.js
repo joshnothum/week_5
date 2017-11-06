@@ -18,7 +18,7 @@ myApp.controller('RentController', function ($http, PropertyService) {
     };//end of rc.addRentals()
 
     rc.deleteRentals = function (rentId) {
-        console.log(rentId);
+    
         swal({
             title: "Are you sure?",
             text: "Once deleted, this listing is gone FOREVER!",

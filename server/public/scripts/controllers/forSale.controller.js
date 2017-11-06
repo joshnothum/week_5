@@ -13,7 +13,7 @@ myApp.controller('SaleController', function ($http, PropertyService) {
     };//end of refreshLisitings
 
     sc.addListing = function (addListing) {
-        console.log(addListing);
+      
         PropertyService.addItAll(property, addListing);
         sc.refreshListings();
     };//end of addListing
