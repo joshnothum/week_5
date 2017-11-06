@@ -1,16 +1,15 @@
-<div id="RentController">
-    {{7===7}}
+<div id="RentController" class="container">
     <button ng-click="rc.refreshRentals()">Show Rentals</button>
     <form ng-submit="rc.addRental(rc.newRental)">
-        <div id="propertyForm" class ="form-group">
-        <label for="cityRent">City:</label>
-        <input class="form-control rentInput" type="text" name="cityRent" id="cityRent" placeholder="City" ng-model="rc.newRental.city">
-        <label for="rent">Rent:</label>
-        <input class="form-control rentInput" type="number" name="rent" id="rent" placeholder="Rent" ng-model="rc.newRental.rent">
-        <label for="sqftRent">Square Footage:</label>
-        <input class="form-control rentInput" type="number" name="sqftRent" id="sqftRent" placeholder="Square Footage" ng-model="rc.newRental.sqft">
-        <br>
-        <button class="btn btn-primary">Add Rental</button>
+        <div id="propertyForm" class="form-group">
+            <label for="cityRent">City:</label>
+            <input class="form-control rentInput" type="text" name="cityRent" id="cityRent" placeholder="City" ng-model="rc.newRental.city">
+            <label for="rent">Rent:</label>
+            <input class="form-control rentInput" type="number" name="rent" id="rent" placeholder="Rent" ng-model="rc.newRental.rent">
+            <label for="sqftRent">Square Footage:</label>
+            <input class="form-control rentInput" type="number" name="sqftRent" id="sqftRent" placeholder="Square Footage" ng-model="rc.newRental.sqft">
+            <br>
+            <button class="btn btn-primary">Add Rental</button>
         </div>
     </form>
     <table class="table table-bordered table-hover" id="rentInfo">
@@ -25,7 +24,9 @@
             <td>{{rent.city}}</td>
             <td>{{rent.rent}}</td>
             <td>{{rent.sqft}}</td>
-            <td><button class="btn btn-small btn-danger" ng-click="rc.deleteRentals(rent._id)"> Delete</button></td>
+            <td>
+                <button class="btn btn-small btn-danger" ng-click="rc.deleteRentals(rent._id)"> Delete</button>
+            </td>
             <td>
                 <button class="btn btn-small btn-primary" ng-click="rc.editRentals(rent_id)">Edit</button>
             </td>

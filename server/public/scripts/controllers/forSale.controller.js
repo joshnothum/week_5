@@ -5,7 +5,7 @@ myApp.controller('SaleController', function ($http, PropertyService) {
     sc.newListing = {};
     sc.allListings = PropertyService.allListings;
     property = false;
-
+    
     sc.refreshListings = function () {
 
         PropertyService.refreshItAll();

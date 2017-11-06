@@ -5,6 +5,7 @@ myApp.controller('RentController', function ($http, PropertyService) {
     rc.newRental = {};
     rc.allRentals = PropertyService.allRentals;
     property = 'rent';
+    
     rc.refreshRentals = function () {
 
         PropertyService.refreshItAll(property);
@@ -43,18 +44,17 @@ myApp.controller('RentController', function ($http, PropertyService) {
     rc.editRentals = function (rentId) {
         swal({
             title: "Edit property",
-            content:{
-                element:'<input class="rentInput" type="text" name="cityRent" id="cityRent" placeholder="City" ng-model="rc.newRental.city">'+
+            html:
+                '<input class="rentInput" type="text" name="cityRent" id="cityRent" placeholder="City" ng-model="rc.newRental.city">'+
                 '<input class="rentInput" type="number" name="rent" id="rent" placeholder="Rent" ng-model="rc.newRental.rent">'+
                 '<input class="rentInput" type="number" name="sqftRent" id="sqftRent" placeholder="Square Footage" ng-model="rc.newRental.sqft">',
-            },
             button: {
                 text: "Edit!",
                 closeModal: false,
             }
-        // }, function () {
-        // PropertyService.editItAll(property, rentId, updateRental);
-        // rc.refreshRentals();
+        }, function () {
+        PropertyService.editItAll(property, rentId, updateRental);
+        rc.refreshRentals();
         });
     };
 });

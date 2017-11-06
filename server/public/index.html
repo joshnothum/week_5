@@ -7,7 +7,7 @@
     <script type="text/javascript" src="vendors/angular.min.js"></script>
     <script src="vendors/angular-route.min.js"></script>
     <script type="text/javascript" src="vendors/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="vendors/sweetalert.min.js"></script>
+    <script type="text/javascript" src="vendors/sweetalert2.all.min.js"></script>
     <script src="scripts/client.js"></script>
     <script src="scripts/services/property.service.js"></script>
     <script type="text/javascript" src="scripts/controllers/forRent.controller.js"></script>
@@ -17,9 +17,11 @@
     <title>Weekend 5</title>
 </head>
 <body ng-app="myApp">
+    <div class="jumbotron">
     <h1>Weekend 5</h1>
-<a class="options" href="/#!/rent">For Rent</a>
-<a class="options" href="/#!/sale">For Sale</a>
+<a class="btn btn-info btn-small" href="/#!/rent">For Rent</a>
+<a class="btn btn-info btn-small" href="/#!/sale">For Sale</a>
+</div>
 <main ng-view>
      {{7===7}}
     <!---  this is where my properties go -->

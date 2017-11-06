@@ -1,36 +1,35 @@
-<div id="SaleController">
-    {{7===7}}
+<div id="SaleController" class="container">
     <button ng-click="sc.refreshListings()">Show Listings</button>
     <form ng-submit="sc.addListing(sc.newListing)" id="rentals">
-       <div id="propertyForm" class = "form-group">
-        <label for="city">City:</label>
-        <input class="form-control saleInput" type="text" name="city" id="city" placeholder="Your City" ng-model="sc.newListing.city">
-        <label for="cost">Cost:</label>
-        <input class="form-control saleInput" type="text" name="cost" id="cost" placeholder="Your Price $00000" ng-model="sc.newListing.cost">
-        <label for="sqft">Square Footage:</label>
-        <input class="form-control saleInput" type="text" name="sqft" id="sqft" placeholder="Your Square Footage" ng-model="sc.newListing.sqft">
-        <br>
-        <button class="btn btn-primary">Add Listing</button>
+        <div id="propertyForm" class="form-group">
+            <label for="city">City:</label>
+            <input class="form-control saleInput" type="text" name="city" id="city" placeholder="Your City" ng-model="sc.newListing.city">
+            <label for="cost">Cost:</label>
+            <input class="form-control saleInput" type="text" name="cost" id="cost" placeholder="Your Price $00000" ng-model="sc.newListing.cost">
+            <label for="sqft">Square Footage:</label>
+            <input class="form-control saleInput" type="text" name="sqft" id="sqft" placeholder="Your Square Footage" ng-model="sc.newListing.sqft">
+            <br>
+            <button class="btn btn-primary">Add Listing</button>
         </div>
     </form>
-        <table class="table table-bordered" id="listInfo">
-            <tr>
-                <th>City</th>
-                <th>Cost</th>
-                <th>Square Footage</th>
-                <th>Delete</th>
-                <th>Edit</th>
-            </tr>
-            <tr ng-repeat="list in sc.allListings.data | orderBy:'-cost'">
-                <td>{{list.city}}</td>
-                <td>{{list.cost}}</td>
-                <td>{{list.sqft}}</td>
-                <td>
-                    <button class="btn btn-small btn-danger" ng-click="sc.deleteListings(list._id)"> Delete</button>
-                </td>
-                <td>
-                    <button class="btn btn-small btn-primary" ng-click="sc.editListings(list_id)">Edit</button>
-                </td>
-            </tr>
-        </table>
+    <table class="table table-bordered table-hover" id="listInfo">
+        <tr>
+            <th>City</th>
+            <th>Cost</th>
+            <th>Square Footage</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+        <tr ng-repeat="list in sc.allListings.data | orderBy:'-cost'">
+            <td>{{list.city}}</td>
+            <td>{{list.cost}}</td>
+            <td>{{list.sqft}}</td>
+            <td>
+                <button class="btn btn-small btn-danger" ng-click="sc.deleteListings(list._id)"> Delete</button>
+            </td>
+            <td>
+                <button class="btn btn-small btn-primary" ng-click="sc.editListings(list_id)">Edit</button>
+            </td>
+        </tr>
+    </table>
 </div>
